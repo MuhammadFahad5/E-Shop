@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Routes, Route, NavLink } from "react-router-dom";
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import ProtectedRoute from './utility/ProtectedRoute';
+import ProtectedRoute1 from './utility/ProtectedRoute1';
+import Cart from './pages/Cart';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<ProtectedRoute />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+        <Route path="/cart" element={<ProtectedRoute />}>
+          <Route path="/cart" element={<Cart />} />
+        </Route>
+        <Route path="/login" element={<ProtectedRoute1 />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+        <Route path="/register" element={<ProtectedRoute1 />}>
+          <Route path="/register" element={<Register />} />
+        </Route>
+
+      </Routes>
+    </>
   );
 }
 

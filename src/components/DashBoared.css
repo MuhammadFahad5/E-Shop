@@ -1,0 +1,151 @@
+.dashboard {
+    background-color: #F2F2F2;
+}
+
+aside {
+    width: 260px;
+    padding: 15px;
+    position: relative;
+    min-height: 100vh;
+    /* max-height: 1024px; */
+    background-color: #fff;
+}
+
+main {
+    width: calc(100% - 260px);
+    /* height: 100vh; */
+    /* min-height: 100vh; */
+    padding: 20px;
+}
+
+
+/* Aside  */
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile .profile-content {}
+
+.profile h3 {
+    color: #09090A;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.profile h4 {
+    color: #1F1F22;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.aside-list {
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+.aside-list ul {
+    width: 100%;
+}
+
+.aside-list ul li {
+    width: 100%;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0px;
+}
+.aside-list ul li:hover{
+    background-color: #89089F;
+}
+
+.aside-list ul li:hover a{
+    background-color: #89089F;
+    color: #fff !important;
+}
+
+
+li.active {
+    background-color: #89089F;
+}
+
+li.active a {
+    background-color: #89089F;
+    color: #fff !important;
+}
+
+.aside-list ul li a {
+    text-decoration: none;
+    color: #09090A;
+    font-weight: 400;
+    font-size: 16px;
+    /* width: 100%!important; */
+}
+
+aside .logout {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #09090A;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 16px;
+    position: absolute;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 640px) {
+    aside {
+        width: 110px;
+        padding: 7px;
+        position: relative;
+        min-height: 100vh;
+        background-color: #fff;
+    }
+
+    main {
+        width: calc(100% - 110px);
+        /* height: 100vh; */
+        min-height: 100vh;
+        padding: 7px;
+    }
+
+    .aside-list ul li {
+        width: 100%;
+
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        border-radius: 6px;
+        padding: 7px;
+        margin: 12px 0px;
+    }
+
+    aside .logout {
+        padding: 7px;
+    }
+
+    aside .logout img {
+        display: none;
+    }
+
+
+    .profile-content {
+        display: none;
+
+    }
+
+    .aside-list img {
+        display: none;
+    }
+
+}

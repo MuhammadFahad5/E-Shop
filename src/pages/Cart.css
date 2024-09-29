@@ -1,0 +1,162 @@
+.cart {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 24px;
+}
+.card-Image{
+    width: 100%;
+}
+.cart-row{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+
+}
+.cart-col-1{
+    width: 100%;
+    max-width: 70%;
+}
+
+.cart-col-2{
+    width: 100%;
+    max-width: 30%;
+}
+
+.cart hr {
+    width: 50%;
+    margin: 18px 0px;
+}
+
+.cart .cart-col-1 a {
+    text-decoration: none;
+    color: #1E1E1E;
+    font-size: 22px;
+    font-weight: 600;
+
+}
+
+.cart .cart-col-1 h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.cart .cart-col-1 p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.cart-product-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.product-in-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 2px solid #EDEDED;
+    border-radius: 16px;
+    /* margin-bottom: 24px; */
+    padding: 24px;
+
+}
+
+.product-in-cart .product-detail {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+}
+
+/* .product-in-cart .product-detail .product-heading{
+   margin-
+
+} */
+
+.product-in-cart .product-detail h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+
+}
+
+.product-in-cart .product-detail h4 {
+    font-size: 17px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+.product-review {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-review .count {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.product-review .count span {
+    font-weight: 600;
+    font-size: 22px;
+    color: #393939;
+}
+
+.product-review button {
+    border: none;
+    background: none;
+}
+
+.product-review img {
+    display: block;
+}
+
+@media only screen and (max-width: 1320px){
+    .cart-row{
+        
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        
+    
+    }
+    .cart-col-1{
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .cart-col-2{
+        width: 100%;
+        max-width: 450px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .product-in-cart {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .cart .cart-col-1 a {
+
+        font-size: 12px;
+        font-weight: 500;
+
+    }
+
+    .product-in-cart .product-detail {
+        flex-direction: column;
+    }
+
+    .product-review {
+        flex-direction: column;
+
+    }
+}
