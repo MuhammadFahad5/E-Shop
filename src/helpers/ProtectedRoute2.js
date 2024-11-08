@@ -1,15 +1,15 @@
 import React from 'react'
 import {Outlet, Navigate} from 'react-router-dom'
 
-const ProtectedRoute = () => {
+const ProtectedRoute2 = () => {
     const auth = localStorage.getItem("loggedin")
   return (
     <>
     {
-        auth?<Outlet/>:<Navigate to={"/login"}/>
+        auth?<Navigate to={"/"}/>:<Outlet/>
     }
     </>
   )
 }
 
-export default ProtectedRoute
+export default ProtectedRoute2

@@ -1,0 +1,120 @@
+.banner-container{
+    background-color: rgba(0, 0, 0, 0.943);
+    border-radius: 24px;
+    position: relative;
+    width: 100%;
+}
+.banner-upper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+.banner-down{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+.banner-row{
+    /* background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)) ,url(../Assests/banner-bg.png); */
+    background:url(../Assests/banner-bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 424px; */
+    display: flex;
+    width: 100%;
+}
+
+.banner-col-1{
+    width: 50%;
+    position: relative;
+    display: flex;
+justify-content: center;
+}
+.banner-pink{
+    width: 40%;
+    max-width: 180px;
+}
+.banner-shoe{
+    position: absolute;
+    left: 15%;
+    top: 22%;
+    width: 76%;
+}
+
+.banner-col-2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 25px;
+}
+
+.banner-col-2 h1{
+    color:#fff;
+    font-size:40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+}
+.banner-col-2 h2{
+    color:#fff;
+    background-color: #89089F;
+    width: 135px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 44px;
+    font-weight: 700;
+}
+    
+
+.banner-col-2 p{
+    color:#fff;
+    font-weight: 300;
+    font-size: 13px;
+    margin: 22px 0px;
+    
+}
+.banner-col-2 button{
+    width: 122px;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 768px){
+    .banner-row{
+        flex-direction: column-reverse;
+        padding: 50px;
+    }
+    .banner-col-2{
+        width: 100%;
+        align-items: center;
+        padding: 10px;
+    }
+    .banner-col-1{
+        width: 100%;
+        padding: 10px;
+    }
+    .banner-pink{
+        display: none;
+    }
+    .banner-shoe{
+        position:relative;
+        /* position: absolute; */
+        left: 0;
+        top: 0;
+        width: 76%;
+    }
+
+
+}

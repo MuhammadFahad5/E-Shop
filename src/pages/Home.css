@@ -25,9 +25,10 @@
     margin-top: 18px;
 }
 
-.banner img {
+.banner .small-banner .small-banner-image {
     width: 100%;
     display: block;
+    height: 100%;
 }
 
 .main-banner {
@@ -46,23 +47,18 @@
     width: auto;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 1280px) {
     .banner {
-
-        flex-wrap: wrap;
-    }
-
-    .banner img {
-        width: 100%;
-        display: block;
+        flex-direction: column;
     }
 
     .main-banner {
         width: 100%;
-
     }
 
     .small-banner {
         width: 100%;
+        max-width: 640px;
+        margin: auto;
     }
 }

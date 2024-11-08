@@ -1,17 +1,17 @@
 import React from 'react'
-import './UserAuthUI.css'
-import '../App.css'
-import auth_image from '../Assests/auth_image.png'
+import './UserWelcome.css'
+import '../global.css'
+import shop_image from '../Assests/shop_image.png'
 import pager from '../Assests/pager.png'
-const UserAuthUI = ({ children }) => {
+const UserWelcome = ({ children }) => {
   return (
     <>
       <section className='authui'>
-        <div className='container'>
+        <div className='welcome-container'>
           <div className='row'>
             <div className='auth-col-1'>
               <div className='box'>
-                <img src={auth_image} alt="Main Shop" className='image' />
+                <img src={shop_image} alt="Main Shop" className='shop-image' />
                 <div className='content'>
                   <h1 >Welcome to our shop</h1>
                   <span>Purchase imported shoes</span>
@@ -27,4 +27,4 @@ const UserAuthUI = ({ children }) => {
   )
 }
 
-export default UserAuthUI
+export default UserWelcome

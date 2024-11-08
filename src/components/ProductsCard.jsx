@@ -5,9 +5,6 @@ import { useDispatch } from 'react-redux'
 import { addProduct } from '../redux/productSlice/productSlice'
 
 
-
-
-
 const ProductsCard = ({ Image,id,title }) => {
     
     const dispatch = useDispatch()
@@ -41,11 +38,8 @@ const ProductsCard = ({ Image,id,title }) => {
                         <div className='product-rating'>
                             <h5>Running</h5>
                             <img src={stars} alt="Star" />
-
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

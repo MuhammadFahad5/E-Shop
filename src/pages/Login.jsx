@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
-
-
-import UserAuthUI from '../components/UserAuthUI'
+import UserWelcome from '../components/UserWelcome'
 import './LoginRegister.css'
 import icon_email from '../Assests/icon_email.png'
 import lock from '../Assests/lock.png'
 import view from '../Assests/view.png'
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [input, setInput] = useState({
     email: '',
     password: '',
@@ -16,17 +15,7 @@ const Login = () => {
   const navigate = useNavigate()
   const onLogin = (e) => {
     e.preventDefault()
-    // const loggedUser = JSON.parse(localStorage.getItem("user"))
-    // if (input.email === loggedUser.email &&
-    //   input.password === loggedUser.password) {
-    //     localStorage.setItem('loggedin',true)
-    //   navigate('/')
-
-
-    // Retrieve existing users from local storage
     const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Check if the input matches any user's credentials
     const loggedUser = users.find(user =>
       user.email === input.email && user.password === input.password
     );
@@ -42,7 +31,7 @@ const Login = () => {
   }
   return (
     <>
-      <UserAuthUI>
+      <UserWelcome>
         <div className='loginRegister'>
           <h2 className=''>Welcome</h2>
           <form onSubmit={onLogin}>
@@ -60,14 +49,14 @@ const Login = () => {
             <div className='input-div'>
               <img src={lock} alt="Lock" />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
                 name="password"
                 value={input.password}
                 onChange={e => setInput({ ...input, password: e.target.value })}
                 required
               />
-              <img src={view} alt="view" />
+              <img src={view} alt="view" onClick={() => setShowPassword(!showPassword)} style={{ cursor: 'pointer' }}/>
             </div>
             <a href="#" className='forgotpassword'>Forgot password ?</a>
             <button type='submit' className='login'>Login</button>
@@ -77,10 +66,9 @@ const Login = () => {
                 Regitration
               </button>
             </NavLink>
-
           </form>
         </div>
-      </UserAuthUI>
+      </UserWelcome>
     </>
 
   )

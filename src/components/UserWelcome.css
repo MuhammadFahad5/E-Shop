@@ -1,3 +1,8 @@
+.welcome-container{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1920px;
+}
 .authui {
     background-color: #F2F2F2;
     height: 100vh;
@@ -5,11 +10,8 @@
     align-items: center;
     justify-content: center;
 }
-
-
 .auth-col-1 {
-    border-radius: 24px 0 0 24px;
-    width: 60%;
+    width: 65%;
     background-color: #89089F;
     height: 100vh;
     max-height: 1024px;
@@ -17,16 +19,17 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    
-
+}
+.shop-image{
+    width: 100%;
+    max-height: 75vh;
 }
 
 .auth-col-2 {
-    border-radius:0 24px 24px 0;
     background-color: #fff;
     height: 100vh;
     max-height: 1024px;
-    width: 40%;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,6 +59,16 @@
     line-height: 28px;
     margin-bottom: 46px;
     display: block;
+}
+
+@media only screen and (min-width: 1922px){
+    .auth-col-1{
+        border-radius: 24px 0 0 24px;
+    }
+    .auth-col-2{
+        border-radius:0 24px 24px 0;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {

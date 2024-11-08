@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
-import './DashBoared.css'
+import './DashBoard.css'
 import profile_pic from '../Assests/profile_pic.png'
 import home from '../Assests/Icons_home.png'
 import products from '../Assests/Icons_products.png'
@@ -8,9 +8,12 @@ import notification from '../Assests/Icons_notification.png'
 import inventory from '../Assests/Icons_inventory.png'
 import analysis from '../Assests/Icons_analysis.png'
 import logout from '../Assests/Icons_logout.png'
+import menu_btn from '../Assests/hameburger.png'
+import close from '../Assests/close.png'
 
 
-const DashBoared = ({children}) => {
+const DashBoard = ({children}) => {
+  const [mobileMenu,setMobileMenu] = useState(false)
   const loggedinEmail = localStorage.getItem('loggedinEmail');
   const loggedinUsername = localStorage.getItem('loggedinUsername');
   const navigate = useNavigate()
@@ -57,9 +60,11 @@ const DashBoared = ({children}) => {
   return (
     <>
       <section className='dashboard'>
-        <div className='container'>
+        <button className='Menu-Button' onClick={()=>setMobileMenu(true)}>Menu<img src={menu_btn} alt="Click to Open Menu " /></button>
+        <div className='dashboard-container'>
           <div className='row'>
-            <aside>
+            <aside className={`${mobileMenu?'mobile-menu-active':''}`}>
+              <button className='close-menu' onClick={()=>setMobileMenu(false)}> <img src={close} alt="Close Menu" /> </button>
               <div className='profile'>
                 <img src={profile_pic} alt="Profile Pic" />
                 <div className='profile-content'>
@@ -98,4 +103,4 @@ const DashBoared = ({children}) => {
   )
 }
 
-export default DashBoared
+export default DashBoard

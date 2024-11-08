@@ -6,7 +6,7 @@ const ProtectedRoute1 = () => {
   return (
     <>
     {
-        auth?<Navigate to={"/"}/>:<Outlet/>
+        auth?<Outlet/>:<Navigate to={"/login"}/>
     }
     </>
   )

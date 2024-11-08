@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import UserAuthUI from '../components/UserAuthUI'
+import UserWelcome from '../components/UserWelcome'
 import { useNavigate, NavLink } from 'react-router-dom'
 import './LoginRegister.css'
 import icon_email from '../Assests/icon_email.png'
@@ -8,81 +8,39 @@ import view from '../Assests/view.png'
 import user from '../Assests/user.png'
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRePassword, setShowRePassword] = useState(false);
   const [input, setInput] = useState({
     name: '',
     email: '',
     password: '',
+    reEnterPassword:'',
   })
   const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
-    // localStorage.setItem("user",JSON.stringify(input))
 
-    // // Get existing users from local storage, or initialize to an empty array
-    // const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    // // Add the new user to the array
-    // existingUsers.push(input);
-
-    // // Save the updated users array back to local storage
-    // localStorage.setItem("users", JSON.stringify(existingUsers));
-
-    // navigate('/login')
-
-
-    // Get existing users from local storage or initialize to an empty array
+    if (input.password !== input.reEnterPassword) {
+      alert("Passwords do not match. Please re-enter the same password.");
+      return;
+    }
+    
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Check if the email already exists
     const emailExists = existingUsers.some(user => user.email === input.email);
 
     if (emailExists) {
-      // Handle the case where the email is already taken
       alert("Email already registered. Please use a different email.");
       return;
     }
 
-    // Add the new user to the array
     existingUsers.push(input);
-
-    // Save the updated users array back to local storage
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
     navigate('/login');
   }
-  console.log(input)
   return (
     <>
-      <UserAuthUI>
-        {/* <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder='Name'
-            name="name"
-            value={input.name}
-            onChange={e => setInput({ ...input, name: e.target.value })}
-          />
-          <input
-            type="email"
-            placeholder='Email'
-            name="email"
-            value={input.email}
-            onChange={e => setInput({ ...input, email: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder='Password'
-            name="password"
-            value={input.password}
-            onChange={e => setInput({ ...input, password: e.target.value })}
-          />
-
-          <button type='submit'>Register</button>
-
-        </form> */}
-
-
-
+      <UserWelcome>
         <div className='loginRegister'>
           <h2 className=''>Registration</h2>
           <form onSubmit={handleSubmit}>
@@ -111,16 +69,27 @@ const Register = () => {
             <div className='input-div'>
               <img src={lock} alt="Lock" />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder='Password'
                 name="password"
                 value={input.password}
                 onChange={e => setInput({ ...input, password: e.target.value })}
                 required
               />
-              <img src={view} alt="view" />
+              <img src={view} alt="view" onClick={() => setShowPassword(!showPassword)} style={{ cursor: 'pointer' }}/>
             </div>
-            <a href="#" className='forgotpassword'>Forgot password ?</a>
+            <div className='input-div'>
+              <img src={lock} alt="Lock" />
+              <input
+                type={showRePassword ? 'text' : 'password'}
+                placeholder='Re-enter password'
+                name="re-enter-password"
+                value={input.reEnterPassword}
+                onChange={e => setInput({ ...input, reEnterPassword: e.target.value })}
+                required
+              />
+              <img src={view} alt="view" onClick={() => setShowRePassword(!showRePassword)} style={{ cursor: 'pointer' }}/>
+            </div>
             <button type='submit' className='login'>Create Account</button>
             <p className='noaccount'>Already have an Account?</p>
             <NavLink to="/login" className='accountOrNoAccount'>
@@ -131,7 +100,7 @@ const Register = () => {
 
           </form>
         </div>
-      </UserAuthUI>
+      </UserWelcome>
     </>
   )
 }
